@@ -162,5 +162,19 @@ No que tange à infraestrutura de pesquisa, a China superou o volume bruto de re
 Por fim, esse fenômeno reflete a transição estrutural da China de uma economia voltada à assimilação de tecnologias estrangeiras para uma estratégia focada na autossuficiência e soberania tecnológica em setores estratégicos, como inteligência artificial, semicondutores e energia limpa. Por outro lado, a distância nas métricas de valor de mercado e intensidade de P&D evidencia o peso das diferenças setoriais: os EUA lideram áreas de altíssimo valor agregado intangível, como software e biotecnologia, ao passo que a China ainda carrega um peso expressivo da manufatura tradicional em seu PIB industrial. Por outro lado, a sustentação das altas taxas de crescimento do P&D chinês aponta para um cenário bipolar definitivo: de um lado, a eficiência e o valor de mercado hegemonizados pelos EUA; do outro, a capacidade massiva de mobilização e escala do modelo chinês.
 """
 
-with st.expander("📖 Ler Análise Consolidada da Reconfiguração Geopolítica (2003–2024)", expanded=True):
+with st.expander("Análise dos Resultados", expanded=True):
     st.markdown(texto_analise)    
+
+# ================== REFERÊNCIAS ==================
+st.divider()
+st.subheader("Referências Bibliográficas")
+
+st.markdown(
+    """
+ASSOCIATION OF AMERICAN UNIVERSITIES (AAU). **It’s Official: China Tops U.S. R&D Spending**. Washington, D.C.: AAU Newsroom, 2024. Disponível em: <https://www.aau.edu/newsroom/its-official-china-tops-us-rd-spending>. Acesso em: 30 out. 2026.
+
+MONITOR MERCANTIL. **Investimento da China em P&D cresce 8,2%**. Rio de Janeiro, 2024. Disponível em: <https://monitormercantil.com.br/investimento-da-china-em-pd-cresce-82/>. Acesso em: 30 out. 2026.
+
+NATIONAL CENTER FOR SCIENCE AND ENGINEERING STATISTICS (NCSES). **The State of U.S. Science and Engineering**. Alexandria: National Science Foundation (NSF), NSF 25-353, 2025. Disponível em: <https://ncses.nsf.gov/pubs/nsf25353>. Acesso em: 30 out. 2026.
+"""
+)
