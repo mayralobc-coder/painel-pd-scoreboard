@@ -150,148 +150,17 @@ st.dataframe(tabela_final)
 
 # ================== ANÁLISE ==================
 st.divider()
-st.header("Análise dos resultados")
-st.caption(
-    "Rascunho para revisar e reescrever com suas palavras. Os números foram "
-    "calculados a partir do Dados.xlsx (valores em milhões de euros)."
-)
+st.header("Análise dos Resultados")
 
-with st.expander("1. EUA x China: quem lidera?", expanded=True):
-    st.markdown(
-        """
-- **P&D:** a participação dos EUA no total da base passou de 41,5% (2005) para
-  45,9% (2024). A da China foi de 0,7% para 16,0%. Em 2005 o P&D chinês
-  equivalia a 2% do americano; em 2024, a 35%.
-- **Onde a China já alcançou os EUA, nas empresas da base:** em **empregos** (a
-  partir de 2015; em 2024 tem 1,28 vez o nível americano) e em **Capex** (a
-  partir de 2020, mas em 2024 voltou a 72% do nível dos EUA). Em P&D, número de
-  empresas, receitas e capitalização, ainda não passou. Atenção: isso vale para
-  as empresas da base, em euros. Pelas estatísticas nacionais da OCDE, a China
-  já superou os EUA em P&D total em 2024 (veja as caixas 4 e 5).
-- **Tamanho relativo em 2024 (China ÷ EUA):** P&D 0,35; empresas 0,80;
-  receitas 0,77; Capex 0,72; capitalização 0,13.
-- **Capitalização:** os EUA subiram de 39,9% para 58,4% do total e a China de
-  2,7% para 7,4%. Em 2024, a fatia americana na capitalização (58,4%) é bem
-  maior que no P&D (45,9%), e a chinesa (7,4%) é bem menor que no P&D (16,0%).
+texto_analise = """
+A dinâmica do desenvolvimento tecnológico contemporâneo é marcada por um processo profundo de reconfiguração geopolítica. Ao longo das últimas duas décadas, assistimos à transição de uma hegemonia dos Estados Unidos para um cenário de concorrência global cada vez mais acirrada com a China. A trajetória traçada pelos dados de Pesquisa e Desenvolvimento (P&D) no período de 2003 a 2024 reflete esse movimento: enquanto o investimento norte-americano manteve um crescimento robusto em termos absolutos — aproximando-se da marca de €700 bilhões anuais —, a China protagonizou um processo vertiginoso de convergência tecnológica. 
+
+Em 2005, o ecossistema corporativo chinês representava meros 0,7% da base mundial analisada, o equivalente a apenas 2% do volume gasto pelos EUA. Duas décadas depois, a participação chinesa saltou para 16,0%, alcançando 35% do montante despendido pelas grandes empresas norte-americanas. Quando são observados os dados nacionais consolidados, ajustados pela Paridade de Poder de Compra (PPC) e somando os aportes governamentais, os diagnósticos internacionais já apontam a ultrapassagem da China sobre o orçamento total norte-americano de P&D. Apesar dessa rápida ascensão quantitativa, a análise pormenorizada das métricas corporativas revela assimetrias estruturais marcantes entre os dois modelos de inovação. 
+
+No que tange à infraestrutura de pesquisa, a China superou o volume bruto de recursos humanos dos Estados Unidos ainda em 2015 — alcançando, em 2024, uma força de trabalho científica 1,28 vez maior que a norte-americana — além de ter registrado momentos de liderança nas despesas de capital (Capex). Contudo, a economia norte-americana preserva uma vantagem substancial em termos de intensidade tecnológica e retorno financeiro. Enquanto a intensidade de P&D corporativo nos EUA subiu de 4,3% para 8,8% das receitas entre 2005 e 2024, a taxa chinesa evoluiu de 0,7% para 4,0%. Da mesma forma, o investimento médio por empresa nos EUA ultrapassa €1 bilhão, contra cerca de €437 milhões por firma chinesa. Esse contraste evidencia que, enquanto os EUA sustentam seu domínio baseados na alta concentração de capital em gigantes de tecnologia (big techs) com elevada margem de lucro e forte valorização de mercado — onde detêm 58,4% da capitalização global —, o avanço chinês ancora-se em uma base industrial extremamente pulverizada e em forte expansão estatal. 
+
+Por fim, esse fenômeno reflete a transição estrutural da China de uma economia voltada à assimilação de tecnologias estrangeiras para uma estratégia focada na autossuficiência e soberania tecnológica em setores estratégicos, como inteligência artificial, semicondutores e energia limpa. Por outro lado, a distância nas métricas de valor de mercado e intensidade de P&D evidencia o peso das diferenças setoriais: os EUA lideram áreas de altíssimo valor agregado intangível, como software e biotecnologia, ao passo que a China ainda carrega um peso expressivo da manufatura tradicional em seu PIB industrial. Por outro lado, a sustentação das altas taxas de crescimento do P&D chinês aponta para um cenário bipolar definitivo: de um lado, a eficiência e o valor de mercado hegemonizados pelos EUA; do outro, a capacidade massiva de mobilização e escala do modelo chinês.
 """
-    )
 
-with st.expander("2. Esforço de inovação: intensidade e tamanho médio"):
-    st.markdown(
-        """
-- **Intensidade de P&D (P&D ÷ receitas), 2005 → 2024:** EUA de 4,3% para 8,8%;
-  China de 0,7% para 4,0%; total da base de 3,1% para 5,1%. As empresas dos dois
-  países aumentaram o esforço, mas as americanas seguem com mais que o dobro da
-  intensidade das chinesas.
-- **P&D médio por empresa:** EUA de 299 para 1.007 milhões de euros; China de 28
-  para 437 milhões de euros.
-- A diferença de intensidade pode refletir o perfil setorial de cada país
-  (hipótese a testar com a aba Setores).
-"""
-    )
-
-with st.expander("3. Atenção ao ano de 2024"):
-    st.markdown(
-        """
-- Em 2024 o P&D dos EUA cresceu 19,3%, contra 5,9% do total da base e 3,2% da
-  China. No ano anterior (2022 → 2023), os EUA tinham crescido 2,8%.
-- O número de empresas na base cai: 3.057 (2022), 2.493 (2023) e 2.407 (2024).
-  Nos EUA, de 861 para 666; na China, de 707 para 535. Assim, o P&D médio por
-  empresa americana vai de 636 milhões (2022) para 1.007 milhões (2024).
-- Isso pode refletir mudança na cobertura da base, e não só crescimento real.
-  Antes de concluir que "os EUA aceleraram", vale confirmar com o professor
-  como a base foi montada nos últimos anos.
-- Um contraponto vem da China: segundo o NBS (via Monitor Mercantil), o gasto
-  total do país em P&D cresceu em média 10% ao ano entre 2021 e 2025. Na base,
-  o P&D das empresas chinesas cresceu cerca de 6,4% ao ano entre 2021 e 2024
-  (em euros), e a participação da China parou de subir em 2022. Como o número
-  de empresas chinesas na base caiu de 738 para 535 nesse período, a
-  estagnação pode vir da cobertura da base (ou do câmbio) e não de uma
-  desaceleração real. É uma hipótese a confirmar.
-"""
-    )
-
-with st.expander("4. O que dizem as fontes"):
-    st.markdown(
-        """
-- **[Carta IEDI n. 1317](https://www.iedi.org.br/cartas/carta_iedi_n_1317.html)
-  (18/06/2025):** a China é o segundo maior investidor em P&D do mundo, atrás
-  dos EUA. O gasto em P&D (GERD) passou de 0,57% do PIB em 1995 para 2,3% em
-  2020. Cerca de 85% vai para desenvolvimento experimental ligado à produção,
-  10% para pesquisa aplicada e 5% para pesquisa básica. A carta destaca os
-  parques tecnológicos como peça da política industrial chinesa.
-- **[NSF 25-353](https://ncses.nsf.gov/pubs/nsf25353):** as empresas realizaram
-  722 bilhões de dólares (valores correntes) de P&D nos EUA em 2023, alta de 4,4%
-  sobre 2022. Desse total, 79% foi desenvolvimento, 15% pesquisa aplicada e 6%
-  pesquisa básica, e 55% foi feito pela indústria de transformação.
-- **[Monitor Mercantil](https://monitormercantil.com.br/investimento-da-china-em-pd-cresce-82/)
-  (dados do Departamento Nacional de Estatísticas da China, o NBS):** em 2025 o
-  gasto da China em P&D cresceu 8,2% e chegou a 3,93 trilhões de yuans (cerca de
-  584,5 bilhões de dólares, segundo a matéria). Entre 2021 e 2025 a alta média
-  foi de 10% ao ano. A intensidade de P&D subiu para 2,8% do PIB, acima da média
-  da OCDE (2,72%) pela primeira vez, e a China é a segunda maior investidora do
-  mundo. As empresas respondem por 77,4% do gasto total, contra 11,6% das
-  instituições de pesquisa do governo e 8,7% das universidades. A pesquisa
-  básica foi a que mais cresceu (13,3%, contra 3,2% da aplicada e 8,4% do
-  desenvolvimento experimental). Os polos de Pequim-Tianjin-Hebei, do Delta do
-  Yangtzé e de Guangdong concentram 58,8% do gasto nacional.
-- **OCDE, via [AAU](https://www.aau.edu/newsroom/its-official-china-tops-us-rd-spending)
-  e [Outras Palavras](https://outraspalavras.net/outrasaude/china-ultrapassa-eua-em-gastos-com-pd/)
-  (06/04/2026):** em 2024 a China investiu cerca de 1,03 trilhão de dólares em
-  P&D, contra 1,01 trilhão dos EUA, somando todas as fontes de financiamento. A
-  Outras Palavras informa que os valores estão ajustados pela paridade do poder
-  de compra (PPC); a AAU descreve a unidade de forma ambígua (fala em dólares
-  correntes e, no gráfico, em PPC). Segundo a AAU, o gasto chinês equivale a
-  2,7% do PIB e cresce mais de 14% ao ano desde 2004; a Outras Palavras fala em
-  quase 10% ao ano na última década. Ainda segundo a Outras Palavras, os EUA
-  investem 0,5% do PIB em pesquisa básica, contra 0,19% da China. Não consegui
-  ver os números no documento original da OCDE: os valores vêm dessas duas
-  matérias, que coincidem entre si.
-- **Mudança no perfil do gasto chinês:** pelos valores da matéria, a pesquisa
-  básica já é cerca de 7% do total e o desenvolvimento experimental cerca de
-  81%. A carta do IEDI citava cerca de 5% e 85% (dados até 2020). É um cálculo
-  nosso, a partir dos números das duas fontes. Ele é coerente com os 0,19% do
-  PIB em pesquisa básica citados acima (cerca de 7% de 2,7% do PIB).
-- **Cuidado ao comparar:** a NSF mede o P&D feito dentro dos EUA, em dólares; o
-  IEDI e o NBS trazem o gasto nacional da China (em % do PIB e em yuans); o
-  Scoreboard mede o P&D das empresas da base, em euros. As fontes servem para
-  dar contexto e interpretar a tendência, não para comparar os níveis entre si.
-"""
-    )
-
-with st.expander("5. Base x OCDE: por que os resultados divergem?"):
-    st.markdown(
-        """
-Na base, o P&D da China equivale a 35% do americano em 2024. Pela OCDE, a China
-já passou os EUA. As duas leituras podem estar certas, porque medem coisas
-diferentes:
-
-- **Conversão de moeda:** a OCDE usa a paridade do poder de compra (PPC), que em
-  geral valoriza o gasto de países com custos internos menores. A base usa euros.
-  O Monitor Mercantil, a câmbio corrente, converte o gasto chinês de 2025 em
-  cerca de 584,5 bilhões de dólares, bem abaixo de 1,03 trilhão em PPC (anos e
-  métodos diferentes, mas mostra o efeito da conversão).
-- **Escopo:** a OCDE mede o P&D total feito no país (empresas, governo e
-  universidades). A base cobre só as empresas que mais investem em P&D.
-- **Cobertura da base:** o número de empresas chinesas cai de 738 para 535 entre
-  2021 e 2024 (caixa 3).
-- **Pesquisa básica:** é onde os EUA ainda lideram (0,5% x 0,19% do PIB), e a
-  base não separa pesquisa básica de desenvolvimento.
-"""
-    )
-
-with st.expander("6. Limites da base"):
-    st.markdown(
-        """
-- O "total mundial" do painel é a soma das empresas da base (as que mais
-  investem em P&D), e não o P&D de todo o mundo.
-- A base só tem empresas. Para comparar países inteiros, como faz a OCDE, é
-  preciso usar estatísticas nacionais.
-- Os valores estão em milhões de euros (confirmado para P&D; confirmar para as
-  demais métricas).
-- A base já vem agregada por país e setor, sem empresas individuais. Por isso
-  não dá para analisar empresas brasileiras ou Big Techs com esses dados.
-- Na aba Sales, o valor da Colômbia em 2015 (cerca de 50 milhões) é um erro
-  evidente e foi retirado do total daquele ano.
-"""
-    )
+with st.expander("📖 Ler Análise Consolidada da Reconfiguração Geopolítica (2003–2024)", expanded=True):
+    st.markdown(texto_analise)    
